@@ -206,6 +206,9 @@ function vitePluginStorageProxy(): Plugin {
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
+  // For GitHub Pages project sites the app is served from /<repo>/.
+  // The deploy workflow sets GH_PAGES_BASE=/axora-site/; local/dev stays at "/".
+  base: process.env.GH_PAGES_BASE || "/",
   plugins,
   resolve: {
     alias: {
