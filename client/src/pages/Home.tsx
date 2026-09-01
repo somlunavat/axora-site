@@ -10,16 +10,13 @@ import {
   Check,
   CloudCog,
   Menu,
-  Moon,
   Network,
   Send,
   ShieldCheck,
   Sparkles,
-  Sun,
   X,
 } from "lucide-react";
 import { toast } from "sonner";
-import { useTheme } from "../contexts/ThemeContext";
 
 const services = [
   {
@@ -56,14 +53,13 @@ function AxoraMark({ className = "" }: { className?: string }) {
   return (
     <img
       className={`brand-mark ${className}`}
-      src="/manus-storage/axora-logo_4bfeffdb.png"
+      src="/images/axora-logo.svg"
       alt="Axora Services"
     />
   );
 }
 
 export default function Home() {
-  const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
@@ -83,11 +79,6 @@ export default function Home() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
-  const isDark = theme === "dark";
-
-  const handleThemeToggle = () => {
-    toggleTheme?.();
-  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -118,17 +109,6 @@ export default function Home() {
           </nav>
 
           <div className="header-actions">
-            <button
-              className="theme-toggle"
-              type="button"
-              onClick={handleThemeToggle}
-              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-              aria-pressed={isDark}
-              title={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {isDark ? <Sun size={16} /> : <Moon size={16} />}
-              <span>{isDark ? "Light" : "Dark"}</span>
-            </button>
             <a className="header-contact" href="#contact">
               Let&apos;s talk <ArrowRight size={16} strokeWidth={2.2} />
             </a>
@@ -153,10 +133,6 @@ export default function Home() {
           <a href="#services" onClick={closeMenu}><span>01</span>Services <ArrowDownRight /></a>
           <a href="#about" onClick={closeMenu}><span>02</span>Why Axora <ArrowDownRight /></a>
           <a href="#contact" onClick={closeMenu}><span>03</span>Start a conversation <ArrowDownRight /></a>
-          <button className="mobile-theme-toggle" type="button" onClick={handleThemeToggle} aria-pressed={isDark}>
-            <span>{isDark ? "Use light mode" : "Use dark mode"}</span>
-            {isDark ? <Sun size={19} /> : <Moon size={19} />}
-          </button>
         </nav>
       </div>
 
@@ -178,7 +154,7 @@ export default function Home() {
             </div>
 
             <div className="hero-visual reveal-item" aria-label="Abstract systems network">
-              <img src="/manus-storage/axora-hero-network_15da2f47.jpg" alt="" />
+              <img src="/images/axora-hero-network.svg" alt="" />
               <div className="visual-glass-card">
                 <span className="card-status"><i /> SIGNAL / ACTIVE</span>
                 <strong>Clearer direction.<br />Stronger systems.</strong>
@@ -242,7 +218,7 @@ export default function Home() {
 
         <section className="focus-section" aria-labelledby="focus-title">
           <div className="focus-image">
-            <img src="/manus-storage/axora-architecture_3321fbe0.jpg" alt="Abstract engineered technology infrastructure" />
+            <img src="/images/axora-architecture.svg" alt="Abstract engineered technology infrastructure" />
             <span className="focus-image-label">SCALE WITH INTENT</span>
           </div>
           <div className="focus-copy">
@@ -259,7 +235,7 @@ export default function Home() {
         </section>
 
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
-          <div className="contact-art"><img src="/manus-storage/axora-contact-light_e5eee1f0.jpg" alt="" /></div>
+          <div className="contact-art"><img src="/images/axora-contact.svg" alt="" /></div>
           <div className="contact-inner">
             <div className="contact-intro">
               <p className="eyebrow eyebrow-dark">Start a conversation</p>
