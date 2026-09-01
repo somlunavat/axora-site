@@ -296,3 +296,37 @@ em { font-weight: 500; }
   .eyebrow { font-size: 10px; letter-spacing: .105em; }
   .intro-section::before, .services-section::before, .contact-section::before { left: 22px; }
 }
+
+/* ------------------------------------------------------------------
+   Dark-only theme (no toggle).
+   The earlier :root blocks are declared after the .dark blocks, so at
+   equal specificity they win by source order and defeat dark mode.
+   html.dark (0,1,1) outranks :root (0,1,0), so these are authoritative.
+   ------------------------------------------------------------------ */
+html.dark {
+  --ink: #f6f3ff;
+  --ink-soft: #dcd4ff;
+  --paper: #0d0730;
+  --bone: #171047;
+  --citron: #bd45ff;
+  --sea: #3c9bff;
+  --line: rgba(220, 212, 255, .17);
+  --muted-ink: #b7afd8;
+  --primary: #f6f3ff;
+  --background: #0d0730;
+  --foreground: #f6f3ff;
+}
+
+/* Sections that use var(--ink) as a *background* must stay dark even
+   though --ink is now a light (foreground) colour. */
+html.dark,
+html.dark body { background: #0d0730; }
+html.dark .hero-section,
+html.dark .focus-section,
+html.dark .site-footer,
+html.dark .mobile-menu { background: #120a3a; }
+html.dark .services-section { background-color: #150c40; }
+html.dark .intro-section,
+html.dark .contact-section { background-color: #0d0730; }
+html.dark .is-scrolled .header-contact { border-color: rgba(246, 243, 255, .5); }
+html.dark .is-scrolled .theme-toggle { border-color: rgba(246, 243, 255, .34); }
